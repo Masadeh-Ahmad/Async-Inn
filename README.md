@@ -11,6 +11,19 @@ you can add rooms by there ID and name, and add amenities by there ID and name
 
 and you can retrieve data of hotels ,rooms and amenities and updata on it
 
+## 4/20/2022
+
+#  Dependency Injection & Repository Design Pattern
+
+We add  Dependency Injection & Repository Design Pattern to our project so now we have a spareted services Classes now the controllers have a less functionality to do.
+
+Now you do this:
+- GET(api/Hotels) To get all data for hotels
+- GET(api/Hotels/"id") To get the data for a specific hotel 
+- POST(api/Hotels) to add a hotel to the database
+- PUT(api/Hotels/"id") to modify the data for a specific hotel
+- DELETE((api/Hotels/"id")) to delete  all data for a specific hotel
+
 
 
 # ERD 
