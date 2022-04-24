@@ -34,7 +34,7 @@ namespace Async_Inn
             services.AddTransient<IAmenity, AmenityService>();
             services.AddTransient<IHotel, HotelService>();
             services.AddTransient<IRoom, RoomService>();
-            services.AddControllers();
+            services.AddControllers().AddNewtonsoftJson(opt => opt.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore);
 
         }
 

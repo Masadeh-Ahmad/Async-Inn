@@ -17,7 +17,8 @@ namespace Async_Inn.Services
         }
         public async Task<int> DeleteHotel(Hotel hotel)
         {
-            throw new System.NotImplementedException();
+            _context.Hotels.Remove(hotel);
+            return await _context.SaveChangesAsync();
         }
 
         public async Task<Hotel> GetHotel(int id)
