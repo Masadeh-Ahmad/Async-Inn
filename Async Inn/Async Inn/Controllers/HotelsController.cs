@@ -96,6 +96,28 @@ namespace Async_Inn.Controllers
             return NoContent();
         }
 
-        
+
+        [HttpPost("{hotelId}/{roomNum}")]
+        public async Task<IActionResult> AddRoomToHotel(int hotelId, int roomNum, HotelRoom hotelRoom)
+        {
+            await _hotel.AddRoomToHotel(hotelId, roomNum, hotelRoom);
+            return NoContent();
+        }
+
+        [HttpPut("{hotelId}/{roomNum}")]
+        public async Task<IActionResult> PutHotelRoom(int hotelId, int roomNum, HotelRoom hotelRoom)
+        {
+            await _hotel.PutHotelRoom(hotelId, roomNum, hotelRoom);
+            return NoContent();
+        }
+
+        [HttpDelete("{hotelId}/{roomNum}")]
+        public async Task<IActionResult> DeleteRoomFromHotel(int hotelId, int roomNum)
+        {
+            await _hotel.DeleteRoomFromHotel(hotelId, roomNum);
+            return NoContent();
+        }
+
+
     }
 }

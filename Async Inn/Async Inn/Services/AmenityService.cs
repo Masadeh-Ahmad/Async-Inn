@@ -18,12 +18,12 @@ namespace Async_Inn.Services
        
         public async Task<List<Amenity>> GetAmenities()
         {
-            return await _context.Amenities.ToListAsync();
+            return await _context.Amenities.Include(RM => RM.RoomAmenity).ThenInclude(r => r.Room).ToListAsync();
         }
 
         public async Task<Amenity> GetAmenity(int id)
         {
-            return await _context.Amenities.FindAsync(id);
+            return await _context.Amenities.Include(RM => RM.RoomAmenity).ThenInclude(r => r.Room).FirstOrDefaultAsync(x => x.Id == id);
 
         }
 
@@ -42,6 +42,22 @@ namespace Async_Inn.Services
         public async Task<int> DeleteAmenity(Amenity amenity)
         {
             _context.Amenities.Remove(amenity);
+            return await _context.SaveChangesAsync();
+        }
+        public async Task<int> AddRoomToAmenity(int amenityId, int roomId)
+        {
+            RoomAmenity roomAmenity = new RoomAmenity
+            {
+                AmenityID = amenityId,
+                RoomID = roomId
+            };
+            _context.Entry(roomAmenity).State = EntityState.Added;
+            return await _context.SaveChangesAsync();
+        }
+        
+        public async Task<int> DeleteRoomAmenity(int amenityId, int roomId)
+        {
+            _context.RoomAmenity.Remove(_context.RoomAmenity.FirstOrDefault(RM => RM.RoomID == roomId && RM.AmenityID == amenityId));
             return await _context.SaveChangesAsync();
         }
 
