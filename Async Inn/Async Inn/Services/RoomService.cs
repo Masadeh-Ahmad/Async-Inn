@@ -24,12 +24,12 @@ namespace Async_Inn.Services
 
         public async Task<Room> GetRoom(int id)
         {
-            return await _context.Rooms.FindAsync(id);
+            return await _context.Rooms.Include(RM => RM.RoomAmenity).ThenInclude(a => a.Amenity).Include(HR => HR.HotelRoom).ThenInclude(a => a.Hotel).FirstOrDefaultAsync(x => x.Id == id);
         }
 
         public async Task<List<Room>> GetRooms()
         {
-            return await _context.Rooms.ToListAsync();
+            return await _context.Rooms.Include(RM => RM.RoomAmenity).ThenInclude(a => a.Amenity).Include(HR => HR.HotelRoom).ThenInclude(a => a.Hotel).ToListAsync();
         }
 
         public async Task<int> PostRoom(Room room)

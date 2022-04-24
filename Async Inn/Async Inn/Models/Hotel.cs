@@ -1,4 +1,6 @@
-﻿namespace Async_Inn.Models
+﻿using System.Collections.Generic;
+
+namespace Async_Inn.Models
 {
     public class Hotel
     {
@@ -7,5 +9,6 @@
         public string City { get; set; }
         public string Address { get; set; }
         public string PhoneNum { get; set; }
+        public List<HotelRoom> HotelRoom { get; set; }
     }
 }

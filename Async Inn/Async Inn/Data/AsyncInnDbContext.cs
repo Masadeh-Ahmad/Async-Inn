@@ -9,6 +9,7 @@ namespace Async_Inn.Data
         public DbSet<Room> Rooms { get; set; }
         public DbSet<Amenity> Amenities { get; set; }
         public DbSet<RoomAmenity> RoomAmenity { get; set; }
+        public DbSet<HotelRoom> HotelRoom { get; set; }
 
         public AsyncInnDbContext(DbContextOptions options) : base(options)
         {
@@ -35,6 +36,9 @@ namespace Async_Inn.Data
             );
             modelBuilder.Entity<RoomAmenity>().HasKey(
                 roomAmenity => new { roomAmenity.AmenityID,roomAmenity.RoomID }
+                );
+            modelBuilder.Entity<HotelRoom>().HasKey(
+                hotelRoom => new { hotelRoom.HotelId,hotelRoom.RoomNum }
                 );
         }
       

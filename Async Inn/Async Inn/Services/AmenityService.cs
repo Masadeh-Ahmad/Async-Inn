@@ -51,6 +51,7 @@ namespace Async_Inn.Services
                 AmenityID = amenityId,
                 RoomID = roomId
             };
+            _context.Entry(roomAmenity).State = EntityState.Added;
             return await _context.SaveChangesAsync();
         }
         
