@@ -1,6 +1,7 @@
 ﻿using Async_Inn.Data;
 using Async_Inn.Interfaces;
 using Async_Inn.Models;
+using Async_Inn.Models.DTOs;
 using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,26 +16,37 @@ namespace Async_Inn.Services
         {
             _context = context;
         }
-       
-        public async Task<List<Amenity>> GetAmenities()
+
+        public async Task<List<AmenityDTO>> GetAmenities()
         {
-            return await _context.Amenities.Include(RM => RM.RoomAmenity).ThenInclude(r => r.Room).ToListAsync();
+            return await _context.Amenities.Select(amenity => new AmenityDTO
+            {
+                ID = amenity.Id,
+                Name = amenity.Name
+            }).ToListAsync();
         }
 
-        public async Task<Amenity> GetAmenity(int id)
+        public async Task<AmenityDTO> GetAmenity(int id)
         {
-            return await _context.Amenities.Include(RM => RM.RoomAmenity).ThenInclude(r => r.Room).FirstOrDefaultAsync(x => x.Id == id);
+            return await _context.Amenities.Select(amenity => new AmenityDTO
+            {
+
+                ID = amenity.Id,
+                Name = amenity.Name
+            }).FirstOrDefaultAsync(x => x.ID == id);
 
         }
 
-        public async Task<int> PostAmenity(Amenity amenity)
+        public async Task<int> PostAmenity(AmenityDTO amenityDTO)
         {
+            Amenity amenity = new Amenity() { Id = amenityDTO.ID, Name = amenityDTO.Name };
             _context.Amenities.Add(amenity);
             return await _context.SaveChangesAsync();
         }
 
-        public async Task<int> PutAmenity(Amenity amenity)
+        public async Task<int> PutAmenity(AmenityDTO amenityDTO)
         {
+            Amenity amenity = new Amenity() { Id = amenityDTO.ID, Name = amenityDTO.Name };
             _context.Entry(amenity).State = EntityState.Modified;
             return await _context.SaveChangesAsync();
         }
@@ -43,6 +55,10 @@ namespace Async_Inn.Services
         {
             _context.Amenities.Remove(amenity);
             return await _context.SaveChangesAsync();
+        }
+        public async Task<Amenity> Find(int id)
+        {
+            return await _context.Amenities.FirstOrDefaultAsync(x => x.Id == id);
         }
         public bool AmenityExists(int id)
         {

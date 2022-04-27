@@ -8,6 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using Async_Inn.Data;
 using Async_Inn.Models;
 using Async_Inn.Interfaces;
+using Async_Inn.Models.DTOs;
 
 namespace Async_Inn.Controllers
 {
@@ -24,14 +25,14 @@ namespace Async_Inn.Controllers
 
         // GET: api/Hotels
         [HttpGet]
-        public async Task<ActionResult<List<Hotel>>> GetHotels()
+        public async Task<ActionResult<List<HotelDTO>>> GetHotels()
         {
             return await _hotel.GetHotels();
         }
 
         // GET: api/Hotels/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<Hotel>> GetHotel(int id)
+        public async Task<ActionResult<HotelDTO>> GetHotel(int id)
         {
             var hotel = await _hotel.GetHotel(id);
 
@@ -85,7 +86,7 @@ namespace Async_Inn.Controllers
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteHotel(int id)
         {
-            var hotel = await _hotel.GetHotel(id);
+            var hotel = await _hotel.Find(id);
             if (hotel == null)
             {
                 return NotFound();
@@ -95,40 +96,7 @@ namespace Async_Inn.Controllers
 
             return NoContent();
         }
-        [HttpGet("{hotelId}/Rooms")]
-        public async Task<ActionResult<Hotel>> GetAllRoom(int hotelId) 
-        {
-            var hotel = await _hotel.GetAllRoom(hotelId);
-
-            if (hotel == null)
-            {
-                return NotFound();
-            }
-
-            return hotel;
-        }
-
-        [HttpPost("{hotelId}/Rooms")]
-        public async Task<IActionResult> AddRoomToHotel(int hotelId, HotelRoom hotelRoom)
-        {
-            await _hotel.AddRoomToHotel(hotelId, hotelRoom);
-            return NoContent();
-        }
-
-        [HttpPut("{hotelId}/Rooms/{roomNum}")]
-        public async Task<IActionResult> PutHotelRoom(int hotelId, int roomNum, HotelRoom hotelRoom)
-        {
-            await _hotel.PutHotelRoom( hotelId,  roomNum, hotelRoom);
-           
-            return NoContent();
-        }
-
-        [HttpDelete("{hotelId}/Rooms/{roomNum}")]
-        public async Task<IActionResult> DeleteRoomFromHotel(int hotelId, int roomNum)
-        {
-            await _hotel.DeleteRoomFromHotel(hotelId, roomNum);
-            return NoContent();
-        }
+       
 
 
     }
