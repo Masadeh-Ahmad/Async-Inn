@@ -95,23 +95,35 @@ namespace Async_Inn.Controllers
 
             return NoContent();
         }
-
-
-        [HttpPost("{hotelId}/{roomNum}")]
-        public async Task<IActionResult> AddRoomToHotel(int hotelId, int roomNum, HotelRoom hotelRoom)
+        [HttpGet("{hotelId}/Rooms")]
+        public async Task<ActionResult<Hotel>> GetAllRoom(int hotelId) 
         {
-            await _hotel.AddRoomToHotel(hotelId, roomNum, hotelRoom);
+            var hotel = await _hotel.GetAllRoom(hotelId);
+
+            if (hotel == null)
+            {
+                return NotFound();
+            }
+
+            return hotel;
+        }
+
+        [HttpPost("{hotelId}/Rooms")]
+        public async Task<IActionResult> AddRoomToHotel(int hotelId, HotelRoom hotelRoom)
+        {
+            await _hotel.AddRoomToHotel(hotelId, hotelRoom);
             return NoContent();
         }
 
-        [HttpPut("{hotelId}/{roomNum}")]
+        [HttpPut("{hotelId}/Rooms/{roomNum}")]
         public async Task<IActionResult> PutHotelRoom(int hotelId, int roomNum, HotelRoom hotelRoom)
         {
-            await _hotel.PutHotelRoom(hotelId, roomNum, hotelRoom);
+            await _hotel.PutHotelRoom( hotelId,  roomNum, hotelRoom);
+           
             return NoContent();
         }
 
-        [HttpDelete("{hotelId}/{roomNum}")]
+        [HttpDelete("{hotelId}/Rooms/{roomNum}")]
         public async Task<IActionResult> DeleteRoomFromHotel(int hotelId, int roomNum)
         {
             await _hotel.DeleteRoomFromHotel(hotelId, roomNum);

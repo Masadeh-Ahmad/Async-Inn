@@ -8,6 +8,6 @@
         public int Rate { get; set; }
 
         public Hotel Hotel { get; set; }
-        //public Room Room { get; set; }
+        public Room Room { get; set; }
     }
 }

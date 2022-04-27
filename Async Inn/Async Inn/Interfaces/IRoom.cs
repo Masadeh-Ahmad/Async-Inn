@@ -10,6 +10,8 @@ namespace Async_Inn.Interfaces
         Task<int> PostRoom(Room room);
         Task<int> PutRoom(Room room);
         Task<int> DeleteRoom(Room room);
+        Task<int> AddAmenityToRoom(int roomId, int amenityId);
+        Task<int> DeleteAmenityFromRoom(int amenityId, int roomId);
         public bool RoomExists(int id);
     }
 }
