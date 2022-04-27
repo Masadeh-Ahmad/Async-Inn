@@ -10,7 +10,8 @@ namespace Async_Inn.Interfaces
         Task<int> PostHotel(Hotel hotel);
         Task<int> PutHotel(Hotel hotel);
         Task<int> DeleteHotel(Hotel hotel);
-        Task<int> AddRoomToHotel(int amenityId, int roomId, HotelRoom hotelRoom);
+        Task<Hotel> GetAllRoom(int hotelId);
+        Task<int> AddRoomToHotel(int amenityId, HotelRoom hotelRoom);
         Task<int> PutHotelRoom(int hotelId, int roomNum, HotelRoom hotelRoom);
         Task<int> DeleteRoomFromHotel(int amenityId, int roomId);
         public bool HotelExists(int id);

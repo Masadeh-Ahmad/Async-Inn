@@ -95,19 +95,7 @@ namespace Async_Inn.Controllers
 
             return NoContent();
         }
-        [HttpPost("{amenityId}/{roomId}")]
-        public async Task<IActionResult> AddRoomToAmenity(int amenityId, int roomId)
-        {
-            await _amenity.AddRoomToAmenity(amenityId, roomId);
-            return NoContent();
-        }
-
-        [HttpDelete("{amenityId}/{roomId}")]
-        public async Task<IActionResult> DeleteRoomAmenity(int amenityId, int roomId)
-        {
-            await _amenity.DeleteRoomAmenity(amenityId, roomId);
-            return NoContent();
-        }
+       
 
 
     }
