@@ -8,6 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using Async_Inn.Data;
 using Async_Inn.Models;
 using Async_Inn.Interfaces;
+using Async_Inn.Models.DTOs;
 
 namespace Async_Inn.Controllers
 {
@@ -24,14 +25,14 @@ namespace Async_Inn.Controllers
 
         // GET: api/Rooms
         [HttpGet]
-        public async Task<ActionResult<List<Room>>> GetRooms()
+        public async Task<ActionResult<List<RoomDTO>>> GetRooms()
         {
             return await _room.GetRooms();
         }
 
         // GET: api/Rooms/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<Room>> GetRoom(int id)
+        public async Task<ActionResult<RoomDTO>> GetRoom(int id)
         {
             var room = await _room.GetRoom(id);
 
@@ -46,9 +47,9 @@ namespace Async_Inn.Controllers
         // PUT: api/Rooms/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutRoom(int id, Room room)
+        public async Task<IActionResult> PutRoom(int id, RoomDTO room)
         {
-            if (id != room.Id)
+            if (id != room.ID)
             {
                 return BadRequest();
             }
@@ -74,18 +75,18 @@ namespace Async_Inn.Controllers
         // POST: api/Rooms
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
-        public async Task<ActionResult<Room>> PostRoom(Room room)
+        public async Task<ActionResult<Room>> PostRoom(RoomDTO room)
         {
             await _room.PostRoom(room);
 
-            return CreatedAtAction("GetRoom", new { id = room.Id }, room);
+            return CreatedAtAction("GetRoom", new { id = room.ID }, room);
         }
 
         // DELETE: api/Rooms/5
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteRoom(int id)
         {
-            var room = await _room.GetRoom(id);
+            var room = await _room.Find(id);
             if (room == null)
             {
                 return NotFound();

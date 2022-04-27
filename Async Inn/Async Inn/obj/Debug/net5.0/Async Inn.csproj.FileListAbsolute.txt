@@ -130,3 +130,8 @@ C:\Users\Tomcat00\Dotnet-401\Async-Inn\Async Inn\Async Inn\bin\Debug\net5.0\runt
 C:\Users\Tomcat00\Dotnet-401\Async-Inn\Async Inn\Async Inn\bin\Debug\net5.0\Microsoft.AspNetCore.JsonPatch.dll
 C:\Users\Tomcat00\Dotnet-401\Async-Inn\Async Inn\Async Inn\bin\Debug\net5.0\Microsoft.AspNetCore.Mvc.NewtonsoftJson.dll
 C:\Users\Tomcat00\Dotnet-401\Async-Inn\Async Inn\Async Inn\bin\Debug\net5.0\Newtonsoft.Json.Bson.dll
+C:\Users\Tomcat00\Dotnet-401\Async-Inn\Async Inn\Async Inn\obj\Debug\net5.0\Async Inn.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\Tomcat00\Dotnet-401\Async-Inn\Async Inn\Async Inn\bin\Debug\net5.0\Microsoft.OpenApi.dll
+C:\Users\Tomcat00\Dotnet-401\Async-Inn\Async Inn\Async Inn\bin\Debug\net5.0\Swashbuckle.AspNetCore.Swagger.dll
+C:\Users\Tomcat00\Dotnet-401\Async-Inn\Async Inn\Async Inn\bin\Debug\net5.0\Swashbuckle.AspNetCore.SwaggerGen.dll
+C:\Users\Tomcat00\Dotnet-401\Async-Inn\Async Inn\Async Inn\bin\Debug\net5.0\Swashbuckle.AspNetCore.SwaggerUI.dll
