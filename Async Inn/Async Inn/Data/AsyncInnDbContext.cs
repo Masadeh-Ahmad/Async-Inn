@@ -1,9 +1,10 @@
 ﻿using Async_Inn.Models;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
 namespace Async_Inn.Data
 {
-    public class AsyncInnDbContext : DbContext
+    public class AsyncInnDbContext : IdentityDbContext<ApplicationUser>
     {
         public DbSet<Hotel> Hotels { get; set; }
         public DbSet<Room> Rooms { get; set; }
@@ -16,9 +17,7 @@ namespace Async_Inn.Data
         }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            // This calls the base method, but does nothing
-            // base.OnModelCreating(modelBuilder);
-
+            base.OnModelCreating(modelBuilder);
             modelBuilder.Entity<Hotel>().HasData(
               new Hotel { Id = 1, Name = "Masadeh" , City = "Irbid", Address = "Irbid,Jordan", PhoneNum ="12536748" },
               new Hotel { Id = 2, Name = "Ahmad", City = "Amman", Address = "Amman,Jordan", PhoneNum = "7596454" },

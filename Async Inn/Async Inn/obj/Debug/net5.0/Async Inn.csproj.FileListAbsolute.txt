@@ -135,3 +135,8 @@ C:\Users\Tomcat00\Dotnet-401\Async-Inn\Async Inn\Async Inn\bin\Debug\net5.0\Micr
 C:\Users\Tomcat00\Dotnet-401\Async-Inn\Async Inn\Async Inn\bin\Debug\net5.0\Swashbuckle.AspNetCore.Swagger.dll
 C:\Users\Tomcat00\Dotnet-401\Async-Inn\Async Inn\Async Inn\bin\Debug\net5.0\Swashbuckle.AspNetCore.SwaggerGen.dll
 C:\Users\Tomcat00\Dotnet-401\Async-Inn\Async Inn\Async Inn\bin\Debug\net5.0\Swashbuckle.AspNetCore.SwaggerUI.dll
+C:\Users\Tomcat00\Dotnet-401\Async-Inn\Async Inn\Async Inn\bin\Debug\net5.0\Microsoft.AspNetCore.Cryptography.Internal.dll
+C:\Users\Tomcat00\Dotnet-401\Async-Inn\Async Inn\Async Inn\bin\Debug\net5.0\Microsoft.AspNetCore.Cryptography.KeyDerivation.dll
+C:\Users\Tomcat00\Dotnet-401\Async-Inn\Async Inn\Async Inn\bin\Debug\net5.0\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
+C:\Users\Tomcat00\Dotnet-401\Async-Inn\Async Inn\Async Inn\bin\Debug\net5.0\Microsoft.Extensions.Identity.Core.dll
+C:\Users\Tomcat00\Dotnet-401\Async-Inn\Async Inn\Async Inn\bin\Debug\net5.0\Microsoft.Extensions.Identity.Stores.dll
