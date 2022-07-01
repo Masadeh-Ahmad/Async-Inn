@@ -12,11 +12,11 @@ namespace Async_Inn.Services
     public class HotelService : IHotel
     {
         private readonly AsyncInnDbContext _context;
-        private readonly IRoom _room;
-        public HotelService(AsyncInnDbContext context, IRoom room)
+
+        public HotelService(AsyncInnDbContext context)
         {
             _context = context;
-            _room = room;
+            
         }
 
         public async Task<int> DeleteHotel(Hotel hotel)
